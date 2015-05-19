@@ -1,0 +1,5 @@
+script.groovy.sandbox.enabled: true
+http.cors.enabled: true
+threadpool:
+  search:
+    type: cached
