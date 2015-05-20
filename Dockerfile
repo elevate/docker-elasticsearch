@@ -18,6 +18,11 @@ RUN apt-get update \
 	&& apt-get install elasticsearch=$ELASTICSEARCH_VERSION \
 	&& rm -rf /var/lib/apt/lists/*
 
+ENV MARVEL_VERSION 1.3.1
+WORKDIR /usr/share/elasticsearch/plugins/marvel
+RUN wget http://download.elasticsearch.org/elasticsearch/marvel/marvel-${MARVEL_VERSION}.zip \
+	&& unzip -o marvel-${MARVEL_VERSION}.zip
+
 ENV PATH /usr/share/elasticsearch/bin:$PATH
 COPY config /usr/share/elasticsearch/config
 
