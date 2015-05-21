@@ -32,7 +32,6 @@ ENV PATH /usr/share/elasticsearch/bin:$PATH
 COPY config /usr/share/elasticsearch/config
 
 VOLUME /usr/share/elasticsearch/data
-VOLUME /usr/share/elasticsearch/plugins
 
 COPY docker-entrypoint.sh /
 
