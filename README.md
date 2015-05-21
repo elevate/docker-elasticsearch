@@ -2,6 +2,8 @@ This is a copy of https://github.com/docker-library/elasticsearch (just the 1.5 
 
 It also has some custom config and includes Marvel and the AWS plugin.
 
+Image available on Docker Hub: https://registry.hub.docker.com/u/elevate/elasticsearch/
+
 Assuming that all participating EC2 instances are tagged with `environment:develop`, here's a sample command to run on EC2:
 
 ```
