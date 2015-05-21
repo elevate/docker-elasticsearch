@@ -7,6 +7,11 @@ Image available on Docker Hub: https://registry.hub.docker.com/u/elevate/elastic
 Assuming that all participating EC2 instances are tagged with `environment:develop`, here's a sample command to run on EC2:
 
 ```
-data=$(docker create -v /usr/share/elasticsearch/data busybox)
-docker run -d -p 0.0.0.0:9200:9200 -p 0.0.0.0:9300:9300 elevate/elasticsearch --volumes-from $data --network.publish_host=_ec2_ --discovery.type=ec2 --cloud.aws.region=eu-west --cluster.name=elevate-logs-develop --discovery.ec2.tag.environment=develop 
+docker run -d -p 0.0.0.0:9200:9200 -p 0.0.0.0:9300:9300 elevate/elasticsearch \
+  --volumes-from $(docker create -v /usr/share/elasticsearch/data busybox) \
+  --cluster.name=elevate-logs-develop \
+  --network.publish_host=_ec2_ \
+  --discovery.type=ec2 \
+  --cloud.aws.region=eu-west \
+  --discovery.ec2.tag.environment=develop 
 ```
