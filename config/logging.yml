@@ -7,6 +7,7 @@ logger:
   # reduce the logging for aws, too much is logged under the default INFO
   com.amazonaws: WARN
   com.elevatedirect: DEBUG
+  index.search.slowlog: INFO, index_search_slow_log_file
 
 appender:
   console:
@@ -14,3 +15,12 @@ appender:
     layout:
       type: consolePattern
       conversionPattern: "[%d{ISO8601}][%-5p][%-25c] %m%n"
+
+  index_indexing_slow_log_file:
+    type: rollingFile
+    file: ${path.logs}/${cluster.name}_index_indexing_slowlog.log
+    maxFileSize: 10000000
+    maxBackupIndex: 10
+    layout:
+      type: pattern
+      conversionPattern: "[%d{ISO8601}][%-5p][%-25c] %m%n" 
