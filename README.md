@@ -1,5 +1,9 @@
-This is an image based on https://github.com/docker-library/elasticsearch (just the 1.5 tag).
-It includes some custom config, Marvel and the AWS plugin.
+This is an image based on https://github.com/docker-library/elasticsearch.
+It includes some custom config, and the following plugins:
+
+- [Marvel](https://www.elastic.co/products/marvel)
+- [AWS plugin](https://github.com/elastic/elasticsearch-cloud-aws)
+- [Riemann monitoring](https://github.com/searchly/elasticsearch-monitoring-riemann-plugin)
 
 Image available on Docker Hub: https://registry.hub.docker.com/u/elevate/elasticsearch/
 
@@ -14,5 +18,6 @@ docker run -d -p 0.0.0.0:9200:9200 -p 0.0.0.0:9300:9300 \
   --transport.publish_port=9300
   --discovery.type=ec2 \
   --cloud.aws.region=eu-west \
-  --discovery.ec2.tag.environment=develop 
+  --discovery.ec2.tag.environment=develop \
+  --metrics.riemann.host=riemann-server
 ```
