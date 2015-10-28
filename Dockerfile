@@ -10,4 +10,8 @@ WORKDIR /usr/share/elasticsearch/plugins/elasticsearch-cloud-aws
 RUN wget http://download.elasticsearch.org/elasticsearch/elasticsearch-cloud-aws/elasticsearch-cloud-aws-${AWS_PLUGIN_VERSION}.zip \
 	&& unzip -o elasticsearch-cloud-aws-${AWS_PLUGIN_VERSION}.zip
 
+WORKDIR /usr/share/elasticsearch/plugins/elasticsearch-riemann-plugin
+RUN wget https://github.com/searchly/elasticsearch-monitoring-riemann-plugin/releases/download/elasticsearch-riemann-plugin-1.7.2/elasticsearch-riemann-plugin-1.7.2.zip \
+	&& unzip -o elasticsearch-riemann-plugin-1.7.2.zip
+
 COPY config /usr/share/elasticsearch/config
