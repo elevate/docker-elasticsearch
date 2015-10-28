@@ -1,4 +1,4 @@
-FROM elasticsearch:1.7.1
+FROM elasticsearch:1.7.2
 
 ENV MARVEL_VERSION 1.3.1
 WORKDIR /usr/share/elasticsearch/plugins/marvel
